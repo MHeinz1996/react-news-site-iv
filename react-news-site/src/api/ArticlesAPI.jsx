@@ -37,10 +37,10 @@ async function fetchArticlesBySection(section) {
       params: {
         tags: 'comment'
       }
-  })
+    })
 
-  return response
-}
+    return response
+  }
 }
 
 async function fetchArticles(filters = null) {
