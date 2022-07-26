@@ -20,25 +20,20 @@ async function fetchArticlesBySection(section) {
         tags: 'front_page'
       }
     })
-    
     return response
-
   } else if(section === 'past') {
     let response = await axios.get('http://hn.algolia.com/api/v1/search?', {
       params: {
         numericFilters: (`created_at_i<${date},created_at_i>${date-86400}`)
       }
   })
-
-  return response
-    
+    return response
   } else if(section === 'comments') {
     let response = await axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
       params: {
         tags: 'comment'
       }
     })
-
     return response
   }
 }
