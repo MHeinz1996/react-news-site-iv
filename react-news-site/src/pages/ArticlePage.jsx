@@ -9,9 +9,12 @@ function ArticlePage ({articles}){
 	const [article, setArticle] = useState(null)
 	
 	useEffect(() => {
-		fetchArticleById(articleID)
+		fetchArticleById(articleID).then((response) => {
+			console.log(response)
+			setArticle(response.data.hits[0])
+		})
 	}, [articleID])
-
+	
 	// const article = articles[articleID-1] // -1 because we added 1 in the url to make it restful
 
 	return (

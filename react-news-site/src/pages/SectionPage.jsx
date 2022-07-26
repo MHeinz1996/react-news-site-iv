@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import ArticleList from '../components/ArticleList'
+import { fetchArticlesBySection } from '../api/ArticlesAPI'
 
 function SectionPage ({articles}){
 
@@ -8,11 +9,11 @@ function SectionPage ({articles}){
 	const [sectionArticles, setSectionArticles] = useState([])
 
 	useEffect( () => {
-		const filteredAtricles = articles.filter(article => article.section.toLowerCase() == sectionName.toLowerCase())
+		fetchArticlesBySection(sectionName).then((response) => {
 
-		setSectionArticles(filteredAtricles)
-		
-		console.log(filteredAtricles)
+			console.log(response.data.hits)
+			setSectionArticles(response.data.hits)
+		})
 	}, [sectionName])
 	
 

@@ -34,10 +34,10 @@ function App() {
   async function getData() {
     try{
       const jsonResponse = await callAPI()
-      console.log(jsonResponse.data.hits)
+      // console.log(jsonResponse.data.hits)
       setArticles(jsonResponse.data.hits)
     } catch(error) {
-      console.error('Error fetching data:', error)
+      console.error('Error occurred fetching data:', error)
     }
   }
 

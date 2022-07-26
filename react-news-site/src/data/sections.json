@@ -1,18 +1,18 @@
 [
   {
-    "label": "OPINION",
-    "value": "opinion"
+    "label": "new",
+    "value": "new"
   },
   {
-    "label": "WORLD",
-    "value": "world"
+    "label": "past",
+    "value": "past"
   },
   {
-    "label": "NATIONAL",
-    "value": "national"
+    "label": "comments",
+    "value": "comments"
   },
   {
-    "label": "BUSINESS",
-    "value": "business"
+    "label": "ask",
+    "value": "ask"
   }
 ]
