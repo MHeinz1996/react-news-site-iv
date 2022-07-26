@@ -4,27 +4,27 @@ import ArticleList from '../components/ArticleList'
 
 function SectionPage ({articles}){
 
-    const { sectionName } = useParams()
-    const [sectionArticles, setSectionArticles] = useState([])
+	const { sectionName } = useParams()
+	const [sectionArticles, setSectionArticles] = useState([])
 
-    useEffect( () => {
-        const filteredAtricles = articles.filter(article => article.section.toLowerCase() == sectionName.toLowerCase())
+	useEffect( () => {
+		const filteredAtricles = articles.filter(article => article.section.toLowerCase() == sectionName.toLowerCase())
 
-        setSectionArticles(filteredAtricles)
-        
-        console.log(filteredAtricles)
-    }, [sectionName])
-    
+		setSectionArticles(filteredAtricles)
+		
+		console.log(filteredAtricles)
+	}, [sectionName])
+	
 
-    return(
-        <div>
-        {sectionArticles 
-            ? <ArticleList articles={sectionArticles} />
-            : 'no articles found'
-        
-        }
-        </div>
-    )
+	return(
+		<div>
+		{sectionArticles 
+			? <ArticleList articles={sectionArticles} />
+			: 'no articles found'
+		
+		}
+		</div>
+	)
 }
 
 export default SectionPage
