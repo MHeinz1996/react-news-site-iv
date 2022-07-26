@@ -4,14 +4,18 @@ import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom'
 
 // function ArticleTeaser (props){
-function ArticleTeaser ({objectID, title, created_at}){
+function ArticleTeaser ({objectID, title, created_at, comment_text}){
+
 	return(
 		<Container>
 			<hr/>
 			<Row>
 				<Col lg='8'>
 					<h2 >
-						<Link to={`/articles/${objectID}`} >{title} </Link>
+						{title
+						? <Link to={`/articles/${objectID}`} >{title} </Link>
+						: <Link to={`/articles/${objectID}`} >{comment_text} </Link>
+						}
 					</h2>
 				</Col>
 				<Col lg='4'>
@@ -22,3 +26,8 @@ function ArticleTeaser ({objectID, title, created_at}){
 	)
 }
 export default ArticleTeaser;
+
+// {sectionArticles 
+// 	? <ArticleList articles={sectionArticles} />
+// 	: 'no articles found'
+// }

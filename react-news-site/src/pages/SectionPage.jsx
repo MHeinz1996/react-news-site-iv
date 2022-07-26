@@ -16,13 +16,11 @@ function SectionPage ({articles}){
 		})
 	}, [sectionName])
 	
-
 	return(
 		<div>
 		{sectionArticles 
 			? <ArticleList articles={sectionArticles} />
 			: 'no articles found'
-		
 		}
 		</div>
 	)

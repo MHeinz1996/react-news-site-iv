@@ -7,7 +7,6 @@ async function fetchArticleById(articleID) {
     }
   })
 
-  console.log(response)
   return response
 }
 
@@ -22,7 +21,6 @@ async function fetchArticlesBySection(section) {
       }
     })
     
-    console.log(response)
     return response
 
   } else if(section === 'past') {
@@ -32,9 +30,17 @@ async function fetchArticlesBySection(section) {
       }
   })
 
-  console.log(response)
   return response
-  }
+    
+  } else if(section === 'comments') {
+    let response = await axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
+      params: {
+        tags: 'comment'
+      }
+  })
+
+  return response
+}
 }
 
 async function fetchArticles(filters = null) {
