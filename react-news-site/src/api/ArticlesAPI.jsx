@@ -35,11 +35,31 @@ async function fetchArticlesBySection(section) {
       }
     })
     return response
+  } else if(section === 'ask_hn') {
+    let response = await axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
+      params: {
+        tags: 'ask_hn'
+      }
+    })
+    return response
+  } else if(section === 'show_hn') {
+    let response = await axios.get('http://hn.algolia.com/api/v1/search_by_date?', {
+      params: {
+        tags: 'show_hn'
+      }
+    })
+    return response
   }
 }
 
 async function fetchArticles(filters = null) {
-  console.log('here')
+  let response = await axios.get('http://hn.algolia.com/api/v1/search?', {
+    params:{
+        query: filters,
+        tags: "story"
+    }
+  })
+  return response
 }
 
 export {

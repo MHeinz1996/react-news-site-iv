@@ -7,10 +7,6 @@ import HomePage from './pages/HomePage'
 import ArticlePage from './pages/ArticlePage'
 import SectionPage from './pages/SectionPage'
 
-import NewsData from './data/news.json'
-
-import { fetchArticles, fetchArticleById, fetchArticlesBySection } from './api/ArticlesAPI'
-
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios'
 
@@ -34,7 +30,6 @@ function App() {
   async function getData() {
     try{
       const jsonResponse = await callAPI()
-      console.log(jsonResponse.data.hits)
       setArticles(jsonResponse.data.hits)
     } catch(error) {
       console.error('Error occurred fetching data:', error)
@@ -48,7 +43,7 @@ function App() {
   
   return (
     <div className="App">
-      <AppNav />
+      <AppNav articles = {articles} />
       <Router> 
         <Routes>
           <Route path='/' element={<HomePage articles = {articles}/>} />

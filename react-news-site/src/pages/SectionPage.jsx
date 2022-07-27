@@ -10,8 +10,6 @@ function SectionPage ({articles}){
 
 	useEffect( () => {
 		fetchArticlesBySection(sectionName).then((response) => {
-
-			console.log(response.data.hits)
 			setSectionArticles(response.data.hits)
 		})
 	}, [sectionName])

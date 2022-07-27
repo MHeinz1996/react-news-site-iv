@@ -11,11 +11,6 @@ function Article ({ image, title, author, created_at, story_text, url}){
 	return(
 		<Container >
 			<Row className='article'>
-				{/* <Col lg='3' className='my-col' >
-					{image ? <Image  width={image.width} height={image.height} rounded src={image.url}/>
-								 : <p> image not found </p> 
-					} 
-				</Col> */}
 				<Col lg='9'>
 					<Row>
 						<h1>{title}</h1>
@@ -32,12 +27,10 @@ function Article ({ image, title, author, created_at, story_text, url}){
 							:<a href={url}>Link to story</a>
 						}
 					</Row>
-
 				</Col>
-			
-							
 			</Row>
 		</Container>
 	)
 }
+
 export default Article;

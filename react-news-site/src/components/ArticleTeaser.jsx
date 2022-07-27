@@ -11,12 +11,10 @@ function ArticleTeaser ({objectID, title, created_at, comment_text}){
 			<hr/>
 			<Row>
 				<Col lg='8'>
-					<h2 >
-						{title
-						? <Link to={`/articles/${objectID}`} >{title} </Link>
-						: <Link to={`/articles/${objectID}`} >{comment_text} </Link>
-						}
-					</h2>
+					{title
+						? <h2><Link to={`/articles/${objectID}`}>{title}</Link></h2>
+						: <p>{comment_text}</p>
+					}
 				</Col>
 				<Col lg='4'>
 					<p>{created_at}</p>
@@ -25,9 +23,5 @@ function ArticleTeaser ({objectID, title, created_at, comment_text}){
 		</Container>
 	)
 }
-export default ArticleTeaser;
 
-// {sectionArticles 
-// 	? <ArticleList articles={sectionArticles} />
-// 	: 'no articles found'
-// }
+export default ArticleTeaser;
